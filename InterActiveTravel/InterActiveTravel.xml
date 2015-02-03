@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<widget id="InterActiveGrid.widget.InterActiveGrid" needsEntityContext="true" xmlns="http://www.mendix.com/widget/1.0/">
+    <name>InterActiveGrid</name>
+    <description>Inter Active Grid</description>
+    <icon>
+        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
+    </icon>
+    <properties>
+
+        <!-- General configuration properties -->
+
+        <property key="entity" type="entity" allowNonPersistableEntities="true">
+            <caption>Entity</caption>
+            <category>Configuration</category>
+            <description>The entity to build the table with</description>
+        </property>
+        <property key="cellValueAttr" type="attribute" entityProperty="entity" required="true">
+            <caption>Cell value attribute</caption>
+            <category>Configuration</category>
+            <description>The attribute used as cell value. Not necessary for cell value action count. All other actions are performed on this attribute</description>
+            <attributeTypes>
+                <attributeType name="String"/>
+            </attributeTypes>
+        </property>
+        <property key="cellValueCss" type="attribute" entityProperty="entity" required="true">
+            <caption>Cell value CSS</caption>
+            <category>Configuration</category>
+            <description>The attribute used as cell CSS value.</description>
+            <attributeTypes>
+                <attributeType name="Enum"/>
+            </attributeTypes>
+        </property>
+        <property key="getDataMicroflow" type="microflow">
+            <caption>Get data microflow</caption>
+            <category>Configuration</category>
+            <description>The microflow that returns a list of objects of the same type as the entity property.</description>
+            <returnType type="Object" isList="true" entityProperty="entity"></returnType>
+        </property>
+        <property key="callGetDataMicroflow" type="enumeration" defaultValue="crtOnly">
+            <caption>When to call get data mf</caption>
+            <category>Configuration</category>
+            <description>When to call get data microflow</description>
+            <enumerationValues>
+                <enumerationValue key="crtOnly">Only after widget creation</enumerationValue>
+                <enumerationValue key="crtAndChg">After widget creation and after each change</enumerationValue>
+                <enumerationValue key="chgOnly">Only after each change</enumerationValue>
+            </enumerationValues>
+        </property>
+        <property key="noDataText" type="translatableString">
+            <caption>No data text</caption>
+            <category>Configuration</category>
+            <description>Text to display when there is no data to display</description>
+            <translations>
+                <translation lang="en_GB">No data to display</translation>
+                <translation lang="en_US">No data to display</translation>
+                <translation lang="nl_NL">Geen gegevens beschikbaar</translation>
+            </translations>
+        </property>
+        <property key="noDataTextClass" type="string" defaultValue="NoDataText">
+            <caption>No data text class</caption>
+            <category>Configuration</category>
+            <description>No data text CSS class.</description>
+        </property>
+        <property key="gridClass" type="string" defaultValue="gridClass">
+            <caption>Grid cell class</caption>
+            <category>Configuration</category>
+            <description>Default grid cell CSS class.</description>
+        </property>
+        
+        <!-- Sub entity properties -->
+
+
+        <!-- Selection properties -->
+        
+        <property key="allowSelect" type="boolean" defaultValue="true">
+            <caption>Allow select</caption>
+            <category>Selection</category>
+            <description>This changes whether cells are selectable or not.</description>
+        </property>
+        <property key="selectionClass" type="string" defaultValue="selection">
+            <caption>Grid selection class</caption>
+            <category>Selection</category>
+            <description>Grid selection CSS class.</description>
+        </property>
+        <property key="cellSelectAttr" type="attribute" entityProperty="entity" required="false">
+            <caption>Cell selection attribute</caption>
+            <category>Selection</category>
+            <description>The attribute used to indicate that the cell has been selected.</description>
+            <attributeTypes>
+                <attributeType name="Boolean"/>
+            </attributeTypes>
+        </property>
+        <!-- X-axis properties -->
+
+        <property key="xIdAttr" type="attribute" entityProperty="entity">
+            <caption>X-axis ID attribute</caption>
+            <category>X-axis</category>
+            <description>The attribute used for grouping the data on the X-axis.</description>
+            <attributeTypes>
+                <attributeType name="AutoNumber"/>
+                <attributeType name="DateTime"/>
+                <attributeType name="Enum"/>
+                <attributeType name="Integer"/>
+                <attributeType name="Long"/>
+                <attributeType name="String"/>
+            </attributeTypes>
+        </property>
+        <property key="xLabelAttr" type="attribute" entityProperty="entity">
+            <caption>X-axis label attribute</caption>
+            <category>X-axis</category>
+            <description>The attribute used as column heading.</description>
+            <attributeTypes>
+                <attributeType name="AutoNumber"/>
+                <attributeType name="DateTime"/>
+                <attributeType name="Enum"/>
+                <attributeType name="Integer"/>
+                <attributeType name="Long"/>
+                <attributeType name="String"/>
+            </attributeTypes>
+        </property>
+        <property key="xLabelDateformat" type="string" defaultValue="dd-MM-yyyy">
+            <caption>X-axis date format</caption>
+            <category>X-axis</category>
+            <description>X-axis date format, applicable for date/time only</description>
+        </property>
+        <property key="xSortAttr" type="enumeration" defaultValue="label">
+            <caption>X-axis sort attribute</caption>
+            <category>X-axis</category>
+            <description>The attribute used for sorting the data on the X-axis. Defaults to label attribute</description>
+            <enumerationValues>
+                <enumerationValue key="label">Label</enumerationValue>
+                <enumerationValue key="id">ID</enumerationValue>
+            </enumerationValues>
+        </property>
+        <property key="xSortDirection" type="enumeration" defaultValue="asc">
+            <caption>X-axis sort direction</caption>
+            <category>X-axis</category>
+            <description>Sort ascending or descending</description>
+            <enumerationValues>
+                <enumerationValue key="asc">Ascending</enumerationValue>
+                <enumerationValue key="desc">Descending</enumerationValue>
+            </enumerationValues>
+        </property>
+        <property key="xLabelClass" type="string" defaultValue="XLabelCenter">
+            <caption>X-axis label class</caption>
+            <category>X-axis</category>
+            <description>X-axis label CSS class.</description>
+        </property>
+        
+
+        <!-- Y-axis properties -->
+
+        <property key="yIdAttr" type="attribute" entityProperty="entity">
+            <caption>Y-axis ID attribute</caption>
+            <category>Y-axis</category>
+            <description>The attribute used for grouping the data on the Y-axis.</description>
+            <attributeTypes>
+                <attributeType name="AutoNumber"/>
+                <attributeType name="DateTime"/>
+                <attributeType name="Enum"/>
+                <attributeType name="Integer"/>
+                <attributeType name="Long"/>
+                <attributeType name="String"/>
+            </attributeTypes>
+        </property>
+        <property key="yLabelAttr" type="attribute" entityProperty="entity">
+            <caption>Y-axis label attribute</caption>
+            <category>Y-axis</category>
+            <description>The attribute used as row label.</description>
+            <attributeTypes>
+                <attributeType name="AutoNumber"/>
+                <attributeType name="DateTime"/>
+                <attributeType name="Enum"/>
+                <attributeType name="Integer"/>
+                <attributeType name="Long"/>
+                <attributeType name="String"/>
+            </attributeTypes>
+        </property>
+        <property key="yLabelDateformat" type="string" defaultValue="dd-MM-yyyy">
+            <caption>Y-axis date format</caption>
+            <category>Y-axis</category>
+            <description>Y-axis date format, applicable for date/time only</description>
+        </property>
+        <property key="ySortAttr" type="enumeration" defaultValue="label">
+            <caption>Y-axis sort attribute</caption>
+            <category>Y-axis</category>
+            <description>The attribute used for sorting the data on the Y-axis. Defaults to label attribute</description>
+            <enumerationValues>
+                <enumerationValue key="label">Label</enumerationValue>
+                <enumerationValue key="id">ID</enumerationValue>
+            </enumerationValues>
+        </property>
+        <property key="ySortDirection" type="enumeration" defaultValue="asc">
+            <caption>Y-axis sort direction</caption>
+            <category>Y-axis</category>
+            <description>Sort ascending or descending</description>
+            <enumerationValues>
+                <enumerationValue key="asc">Ascending</enumerationValue>
+                <enumerationValue key="desc">Descending</enumerationValue>
+            </enumerationValues>
+        </property>
+        <property key="yLabelClass" type="string" defaultValue="InterActiveGridYLabel">
+            <caption>Y-axis label class</caption>
+            <category>Y-axis</category>
+            <description>Y-axis label CSS class.</description>
+        </property>
+        <property key="yGroupAttr" type="attribute" entityProperty="entity" required="false">
+            <caption>Y-axis grouping attribute</caption>
+            <category>Y-axis</category>
+            <description>The attribute used to group row label.</description>
+            <attributeTypes>
+                <attributeType name="AutoNumber"/>
+                <attributeType name="DateTime"/>
+                <attributeType name="Enum"/>
+                <attributeType name="Integer"/>
+                <attributeType name="Long"/>
+                <attributeType name="String"/>
+            </attributeTypes>
+        </property>
+        <property key="yGroupClass" type="string" defaultValue="InterActiveGridYGroup">
+            <caption>Y-axis grouping class</caption>
+            <category>Y-axis</category>
+            <description>Y-axis group CSS class.</description>
+        </property>
+        <property key="allowYGroup" type="boolean" defaultValue="true">
+            <caption>Allow grouping</caption>
+            <category>Y-axis</category>
+            <description>Allow grouping on the Y-axis.</description>
+        </property>
+        
+        <!-- Submit button properties -->
+
+        <property key="positionTopSubmitButton" type="boolean" defaultValue="true">
+            <caption>Top submit button</caption>
+            <category>Submit button</category>
+            <description>Show submit button on the top of the grid.</description>
+        </property>
+        <property key="positionBottomSubmitButton" type="boolean" defaultValue="true">
+            <caption>Bottom submit button</caption>
+            <category>Submit button</category>
+            <description>Show submit button on the bottom of the grid.</description>
+        </property>
+        <property key="submitButtonCaption" type="string" required="false">
+            <caption>Submit button caption</caption>
+            <category>Submit button</category>
+            <description>Submit button caption</description>
+        </property>
+        <property key="submitButtonClass" type="string" required="false">
+            <caption>Submit button class</caption>
+            <category>Submit button</category>
+            <description>Submit button CSS class. This is an additional class applied to the export button.</description>
+        </property>
+        <property key="submitButtonMicroflow" type="microflow" required="false">
+            <caption>Submit button microflow</caption>
+            <category>Submit button</category>
+            <description>The microflow that executes when the submit button is clicked.</description>
+            <returnType type="Void"></returnType>
+        </property>
+
+    </properties>
+
+</widget>
