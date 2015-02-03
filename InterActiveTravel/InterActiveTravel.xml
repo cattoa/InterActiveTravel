@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<widget id="InterActiveGrid.widget.InterActiveGrid" needsEntityContext="true" xmlns="http://www.mendix.com/widget/1.0/">
-    <name>InterActiveGrid</name>
+<widget id="InterActiveTravel.widget.InterActiveTravel" needsEntityContext="true" xmlns="http://www.mendix.com/widget/1.0/">
+    <name>InterActiveTravel</name>
     <description>Inter Active Grid</description>
     <icon>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAFo9M/3AAAACXBIWXMAAAsTAAALEwEAmpw
@@ -74,20 +74,53 @@
         <property key="entity" type="entity" allowNonPersistableEntities="true">
             <caption>Entity</caption>
             <category>Configuration</category>
-            <description>The entity to build the table with</description>
+            <description>The entity to represent Travel</description>
         </property>
-        <property key="cellValueAttr" type="attribute" entityProperty="entity" required="true">
-            <caption>Cell value attribute</caption>
+        <property key="departureAttr" type="attribute" entityProperty="entity" required="true">
+            <caption>Departure attribute</caption>
             <category>Configuration</category>
-            <description>The attribute used as cell value. Not necessary for cell value action count. All other actions are performed on this attribute</description>
+            <description>The attribute used to describe the departure point.</description>
             <attributeTypes>
                 <attributeType name="String"/>
             </attributeTypes>
         </property>
-        <property key="cellValueCss" type="attribute" entityProperty="entity" required="true">
-            <caption>Cell value CSS</caption>
+        <property key="hasFixedDeparture" type="attribute" entityProperty="entity" required="true">
+            <caption>Fixed departure</caption>
+            <category>Selection</category>
+            <description>This determines if the route has a fixed departure time.</description>
+            <attributeTypes>
+                <attributeType name="Boolean"/>
+            </attributeTypes>
+        </property>
+        
+        <property key="departureTimeAttr" type="attribute" entityProperty="entity" required="false">
+            <caption>Departure attribute</caption>
             <category>Configuration</category>
-            <description>The attribute used as cell CSS value.</description>
+            <description>The attribute used to describe the departure point.</description>
+            <attributeTypes>
+                <attributeType name="DateTime"/>
+            </attributeTypes>
+        </property>
+        <property key="destinationAttr" type="attribute" entityProperty="entity" required="true">
+            <caption>Destination attribute</caption>
+            <category>Configuration</category>
+            <description>The attribute used to describe the destination point.</description>
+            <attributeTypes>
+                <attributeType name="String"/>
+            </attributeTypes>
+        </property>
+        <property key="arrivalTimeAttr" type="attribute" entityProperty="entity" required="false">
+            <caption>Departure attribute</caption>
+            <category>Configuration</category>
+            <description>The attribute used to describe the departure point.</description>
+            <attributeTypes>
+                <attributeType name="DateTime"/>
+            </attributeTypes>
+        </property>
+        <property key="travelType" type="attribute" entityProperty="entity" required="true">
+            <caption>Travel type</caption>
+            <category>Configuration</category>
+            <description>The enumerator used as the travel type.</description>
             <attributeTypes>
                 <attributeType name="Enum"/>
             </attributeTypes>
@@ -261,7 +294,7 @@
                 <enumerationValue key="desc">Descending</enumerationValue>
             </enumerationValues>
         </property>
-        <property key="yLabelClass" type="string" defaultValue="InterActiveGridYLabel">
+        <property key="yLabelClass" type="string" defaultValue="InterActiveTravelYLabel">
             <caption>Y-axis label class</caption>
             <category>Y-axis</category>
             <description>Y-axis label CSS class.</description>
@@ -279,7 +312,7 @@
                 <attributeType name="String"/>
             </attributeTypes>
         </property>
-        <property key="yGroupClass" type="string" defaultValue="InterActiveGridYGroup">
+        <property key="yGroupClass" type="string" defaultValue="InterActiveTravelYGroup">
             <caption>Y-axis grouping class</caption>
             <category>Y-axis</category>
             <description>Y-axis group CSS class.</description>

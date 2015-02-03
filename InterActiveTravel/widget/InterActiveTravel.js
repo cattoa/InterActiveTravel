@@ -1,10 +1,10 @@
 /*global mx, mendix, require, console, define, module, logger */
 /**
 
-	InterActiveGrid
+	InterActiveTravel
 	========================
 
-	@file      : InterActiveGrid.js
+	@file      : InterActiveTravel.js
 	
 
 	Documentation
@@ -24,7 +24,7 @@
     ], function (declare, _WidgetBase, _Widget, domMx, domClass, domConstruct, lang, dojoNumber, dojoDateLocale, dojoQuery) {
 
         // Declare widget.
-        return declare('InterActiveGrid.widget.InterActiveGrid', [ _WidgetBase, _Widget ], {
+        return declare('InterActiveTravel.widget.InterActiveTravel', [ _WidgetBase, _Widget ], {
 
             widgetContext                   : null,
             contextGUID                     : null,
@@ -49,7 +49,7 @@
              */
             postCreate: function () {
                 
-                domClass.add(this.domNode, "InterActiveGrid");
+                domClass.add(this.domNode, "InterActiveTravel");
                 // Load CSS ... automatically from ui directory
 
                 if (this.onCellClickReference) {
@@ -263,7 +263,7 @@
                     listNode;
 
                 this.domNode.appendChild(domMx.p("Configuration error(s) found"));
-                domClass.add(this.domNode, "InterActiveGridConfigurationError");
+                domClass.add(this.domNode, "InterActiveTravelConfigurationError");
                 listNode = document.createElement("ul");
                 for (i = 0; i < errorMessageArray.length; i = i + 1) {
                     listNode.appendChild(domMx.li(errorMessageArray[i]));
