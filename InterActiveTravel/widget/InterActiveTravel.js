@@ -50,11 +50,6 @@
             postCreate: function () {
                 
                 domClass.add(this.domNode, "InterActiveTravel");
-                // Load CSS ... automatically from ui directory
-
-                if (this.onCellClickReference) {
-                    this.onCellClickReferenceName = this.onCellClickReference.substr(0, this.onCellClickReference.indexOf('/'));
-                }
             },
 
             /**
@@ -79,15 +74,11 @@
                     if (this.checkProperties()) {
                         this.entityMetaData = mx.meta.getEntity(this.entity);
                         console.debug(this.domNode.id + ": applyContext, context object GUID: " + this.contextGUID);
-                        if (this.callGetDataMicroflow === "crtOnly" || this.callGetDataMicroflow === "crtAndChg") {
-                                thisObj.getData();
-                        }
-                        if (this.callGetDataMicroflow === "crtAndChg" || this.callGetDataMicroflow === "chgOnly") {
-                            this.handle = mx.data.subscribe({
-                                guid: this.contextGUID,
-                                callback: lang.hitch(this, this.contextObjectChangedCallback)
-                            });
-                        }
+                        thisObj.getData();
+                        this.handle = mx.data.subscribe({
+                            guid: this.contextGUID,
+                            callback: lang.hitch(this, this.contextObjectChangedCallback)
+                        });
                     }
                 } else {
                     alert(this.id + ".applyContext received empty context");
@@ -104,27 +95,14 @@
                 var
                     errorMessageArray = [];
                     
-                if (this.positionTopSubmitButton || positionBottomSubmitButton) {
-                    if (this.submitButtonCaption === "") {
-                        errorMessageArray.push("When submit button is specified, a caption must be specified for the button");
+                if (this.hasFixedDeparture) {
+                    if (this.departureTimeAttr === null || this.departureTimeAttr === undefined) {
+                        errorMessageArray.push("If fixed departure is selected then an attribute to represent departure time must be configured");
                     }
-                    if (this.submitButtonMicroflow === null) {
-                        errorMessageArray.push("When submit button is specified a microflow to be executed must be specified too");
+                     if (this.arrivalTimeAttr === null || this.arrivalTimeAttr === undefined) {
+                        errorMessageArray.push("If fixed departure is selected then an attribute to represent arrival time must be configured");
                     }
-                }
-                
-                if (this.allowYGroup){
                     
-                    if (this.yGroupAttr === null) {
-                        errorMessageArray.push("When allow y grouping is specified an attribute but be selected that will be used to group on");
-                    }
-                }
-
-                if (this.allowSelect){
-                    
-                    if (this.cellSelectAttr === null) {
-                        errorMessageArray.push("When allow select is specified an attribute but be selected that will be set by the selection process");
-                    }
                 }
 
                 if (errorMessageArray.length > 0) {

@@ -71,7 +71,7 @@
 
         <!-- General configuration properties -->
 
-        <property key="entity" type="entity" allowNonPersistableEntities="true">
+        <property key="entity" type="entity" required="true" isPath="yes" pathType="reference">
             <caption>Entity</caption>
             <category>Configuration</category>
             <description>The entity to represent Travel</description>
@@ -96,7 +96,7 @@
         <property key="departureTimeAttr" type="attribute" entityProperty="entity" required="false">
             <caption>Departure attribute</caption>
             <category>Configuration</category>
-            <description>The attribute used to describe the departure point.</description>
+            <description>The attribute used as the departure time. Only required when Fixed departure is true.</description>
             <attributeTypes>
                 <attributeType name="DateTime"/>
             </attributeTypes>
@@ -110,9 +110,9 @@
             </attributeTypes>
         </property>
         <property key="arrivalTimeAttr" type="attribute" entityProperty="entity" required="false">
-            <caption>Departure attribute</caption>
+            <caption>Arrival attribute</caption>
             <category>Configuration</category>
-            <description>The attribute used to describe the departure point.</description>
+            <description>The attribute used as the departure time. Only required when Fixed departure is true.</description>
             <attributeTypes>
                 <attributeType name="DateTime"/>
             </attributeTypes>
@@ -125,233 +125,5 @@
                 <attributeType name="Enum"/>
             </attributeTypes>
         </property>
-        <property key="getDataMicroflow" type="microflow">
-            <caption>Get data microflow</caption>
-            <category>Configuration</category>
-            <description>The microflow that returns a list of objects of the same type as the entity property.</description>
-            <returnType type="Object" isList="true" entityProperty="entity"></returnType>
-        </property>
-        <property key="callGetDataMicroflow" type="enumeration" defaultValue="crtOnly">
-            <caption>When to call get data mf</caption>
-            <category>Configuration</category>
-            <description>When to call get data microflow</description>
-            <enumerationValues>
-                <enumerationValue key="crtOnly">Only after widget creation</enumerationValue>
-                <enumerationValue key="crtAndChg">After widget creation and after each change</enumerationValue>
-                <enumerationValue key="chgOnly">Only after each change</enumerationValue>
-            </enumerationValues>
-        </property>
-        <property key="noDataText" type="translatableString">
-            <caption>No data text</caption>
-            <category>Configuration</category>
-            <description>Text to display when there is no data to display</description>
-            <translations>
-                <translation lang="en_GB">No data to display</translation>
-                <translation lang="en_US">No data to display</translation>
-                <translation lang="nl_NL">Geen gegevens beschikbaar</translation>
-            </translations>
-        </property>
-        <property key="noDataTextClass" type="string" defaultValue="NoDataText">
-            <caption>No data text class</caption>
-            <category>Configuration</category>
-            <description>No data text CSS class.</description>
-        </property>
-        <property key="gridClass" type="string" defaultValue="gridClass">
-            <caption>Grid cell class</caption>
-            <category>Configuration</category>
-            <description>Default grid cell CSS class.</description>
-        </property>
-        
-        <!-- Sub entity properties -->
-
-
-        <!-- Selection properties -->
-        
-        <property key="allowSelect" type="boolean" defaultValue="true">
-            <caption>Allow select</caption>
-            <category>Selection</category>
-            <description>This changes whether cells are selectable or not.</description>
-        </property>
-        <property key="selectionClass" type="string" defaultValue="selection">
-            <caption>Grid selection class</caption>
-            <category>Selection</category>
-            <description>Grid selection CSS class.</description>
-        </property>
-        <property key="cellSelectAttr" type="attribute" entityProperty="entity" required="false">
-            <caption>Cell selection attribute</caption>
-            <category>Selection</category>
-            <description>The attribute used to indicate that the cell has been selected.</description>
-            <attributeTypes>
-                <attributeType name="Boolean"/>
-            </attributeTypes>
-        </property>
-        <!-- X-axis properties -->
-
-        <property key="xIdAttr" type="attribute" entityProperty="entity">
-            <caption>X-axis ID attribute</caption>
-            <category>X-axis</category>
-            <description>The attribute used for grouping the data on the X-axis.</description>
-            <attributeTypes>
-                <attributeType name="AutoNumber"/>
-                <attributeType name="DateTime"/>
-                <attributeType name="Enum"/>
-                <attributeType name="Integer"/>
-                <attributeType name="Long"/>
-                <attributeType name="String"/>
-            </attributeTypes>
-        </property>
-        <property key="xLabelAttr" type="attribute" entityProperty="entity">
-            <caption>X-axis label attribute</caption>
-            <category>X-axis</category>
-            <description>The attribute used as column heading.</description>
-            <attributeTypes>
-                <attributeType name="AutoNumber"/>
-                <attributeType name="DateTime"/>
-                <attributeType name="Enum"/>
-                <attributeType name="Integer"/>
-                <attributeType name="Long"/>
-                <attributeType name="String"/>
-            </attributeTypes>
-        </property>
-        <property key="xLabelDateformat" type="string" defaultValue="dd-MM-yyyy">
-            <caption>X-axis date format</caption>
-            <category>X-axis</category>
-            <description>X-axis date format, applicable for date/time only</description>
-        </property>
-        <property key="xSortAttr" type="enumeration" defaultValue="label">
-            <caption>X-axis sort attribute</caption>
-            <category>X-axis</category>
-            <description>The attribute used for sorting the data on the X-axis. Defaults to label attribute</description>
-            <enumerationValues>
-                <enumerationValue key="label">Label</enumerationValue>
-                <enumerationValue key="id">ID</enumerationValue>
-            </enumerationValues>
-        </property>
-        <property key="xSortDirection" type="enumeration" defaultValue="asc">
-            <caption>X-axis sort direction</caption>
-            <category>X-axis</category>
-            <description>Sort ascending or descending</description>
-            <enumerationValues>
-                <enumerationValue key="asc">Ascending</enumerationValue>
-                <enumerationValue key="desc">Descending</enumerationValue>
-            </enumerationValues>
-        </property>
-        <property key="xLabelClass" type="string" defaultValue="XLabelCenter">
-            <caption>X-axis label class</caption>
-            <category>X-axis</category>
-            <description>X-axis label CSS class.</description>
-        </property>
-        
-
-        <!-- Y-axis properties -->
-
-        <property key="yIdAttr" type="attribute" entityProperty="entity">
-            <caption>Y-axis ID attribute</caption>
-            <category>Y-axis</category>
-            <description>The attribute used for grouping the data on the Y-axis.</description>
-            <attributeTypes>
-                <attributeType name="AutoNumber"/>
-                <attributeType name="DateTime"/>
-                <attributeType name="Enum"/>
-                <attributeType name="Integer"/>
-                <attributeType name="Long"/>
-                <attributeType name="String"/>
-            </attributeTypes>
-        </property>
-        <property key="yLabelAttr" type="attribute" entityProperty="entity">
-            <caption>Y-axis label attribute</caption>
-            <category>Y-axis</category>
-            <description>The attribute used as row label.</description>
-            <attributeTypes>
-                <attributeType name="AutoNumber"/>
-                <attributeType name="DateTime"/>
-                <attributeType name="Enum"/>
-                <attributeType name="Integer"/>
-                <attributeType name="Long"/>
-                <attributeType name="String"/>
-            </attributeTypes>
-        </property>
-        <property key="yLabelDateformat" type="string" defaultValue="dd-MM-yyyy">
-            <caption>Y-axis date format</caption>
-            <category>Y-axis</category>
-            <description>Y-axis date format, applicable for date/time only</description>
-        </property>
-        <property key="ySortAttr" type="enumeration" defaultValue="label">
-            <caption>Y-axis sort attribute</caption>
-            <category>Y-axis</category>
-            <description>The attribute used for sorting the data on the Y-axis. Defaults to label attribute</description>
-            <enumerationValues>
-                <enumerationValue key="label">Label</enumerationValue>
-                <enumerationValue key="id">ID</enumerationValue>
-            </enumerationValues>
-        </property>
-        <property key="ySortDirection" type="enumeration" defaultValue="asc">
-            <caption>Y-axis sort direction</caption>
-            <category>Y-axis</category>
-            <description>Sort ascending or descending</description>
-            <enumerationValues>
-                <enumerationValue key="asc">Ascending</enumerationValue>
-                <enumerationValue key="desc">Descending</enumerationValue>
-            </enumerationValues>
-        </property>
-        <property key="yLabelClass" type="string" defaultValue="InterActiveTravelYLabel">
-            <caption>Y-axis label class</caption>
-            <category>Y-axis</category>
-            <description>Y-axis label CSS class.</description>
-        </property>
-        <property key="yGroupAttr" type="attribute" entityProperty="entity" required="false">
-            <caption>Y-axis grouping attribute</caption>
-            <category>Y-axis</category>
-            <description>The attribute used to group row label.</description>
-            <attributeTypes>
-                <attributeType name="AutoNumber"/>
-                <attributeType name="DateTime"/>
-                <attributeType name="Enum"/>
-                <attributeType name="Integer"/>
-                <attributeType name="Long"/>
-                <attributeType name="String"/>
-            </attributeTypes>
-        </property>
-        <property key="yGroupClass" type="string" defaultValue="InterActiveTravelYGroup">
-            <caption>Y-axis grouping class</caption>
-            <category>Y-axis</category>
-            <description>Y-axis group CSS class.</description>
-        </property>
-        <property key="allowYGroup" type="boolean" defaultValue="true">
-            <caption>Allow grouping</caption>
-            <category>Y-axis</category>
-            <description>Allow grouping on the Y-axis.</description>
-        </property>
-        
-        <!-- Submit button properties -->
-
-        <property key="positionTopSubmitButton" type="boolean" defaultValue="true">
-            <caption>Top submit button</caption>
-            <category>Submit button</category>
-            <description>Show submit button on the top of the grid.</description>
-        </property>
-        <property key="positionBottomSubmitButton" type="boolean" defaultValue="true">
-            <caption>Bottom submit button</caption>
-            <category>Submit button</category>
-            <description>Show submit button on the bottom of the grid.</description>
-        </property>
-        <property key="submitButtonCaption" type="string" required="false">
-            <caption>Submit button caption</caption>
-            <category>Submit button</category>
-            <description>Submit button caption</description>
-        </property>
-        <property key="submitButtonClass" type="string" required="false">
-            <caption>Submit button class</caption>
-            <category>Submit button</category>
-            <description>Submit button CSS class. This is an additional class applied to the export button.</description>
-        </property>
-        <property key="submitButtonMicroflow" type="microflow" required="false">
-            <caption>Submit button microflow</caption>
-            <category>Submit button</category>
-            <description>The microflow that executes when the submit button is clicked.</description>
-            <returnType type="Void"></returnType>
-        </property>
-
-    </properties>
 
 </widget>
